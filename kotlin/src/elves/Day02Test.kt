@@ -120,7 +120,7 @@ class Day02Test : StringSpec() {
             }
         }
 
-        "You win against the other elve" {
+        "Round scores" {
             forAll(
                 row("A", "X", 4, 4),
                 row("A", "Y", 8, 1),
