@@ -158,7 +158,7 @@ class Day02Test : StringSpec() {
             part2(testInput) shouldBe 13131
         }
 
-        // Inner loop TDD
+        // Inner TDD loop
         "Decode elve encoded outcome hint" {
             forAll(
                 row("X", LOSE),
