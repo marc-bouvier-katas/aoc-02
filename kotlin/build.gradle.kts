@@ -9,10 +9,11 @@ repositories {
 
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-    implementation("org.junit.jupiter:junit-jupiter:5.5.2")
-    implementation("io.kotlintest:kotlintest-runner-junit5:3.4.2")
-    implementation("io.mockk:mockk:1.9.3.kotlin12")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22")
+    implementation("org.junit.jupiter:junit-jupiter:5.9.0")
+    implementation("io.kotest:kotest-runner-junit5:5.5.4")
+    implementation("io.kotest:kotest-framework-datatest:5.5.4")
+    implementation("io.mockk:mockk:1.13.2")
 }
 
 tasks.test {
