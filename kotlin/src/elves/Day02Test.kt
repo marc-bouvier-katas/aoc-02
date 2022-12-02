@@ -15,7 +15,7 @@ class Day02Test : StringSpec() {
 
         "Part 1 sample" {
             //                  Opponent                   You
-            //              shape   outcome score  |    shape   outcome score
+            //               move   outcome score  |     move   outcome score
             // A Y    ->        1       0       1           2       6       8
             // B X              2       6       8           1       0       1
             // C Z              3       3       6           3       3       6
