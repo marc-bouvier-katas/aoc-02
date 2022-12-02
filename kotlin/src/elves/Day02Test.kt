@@ -7,40 +7,6 @@ import io.kotest.data.blocking.forAll
 import io.kotest.data.row
 import io.kotest.matchers.shouldBe
 
-// First column: what the opponent is going to play
-// A : Rock
-// B : Paper
-// C : Scissors
-
-// Second column... ?
-// Unsuspicious response moves
-// X : Rock
-// Y : Paper
-// Z : Scissors
-
-// Total score : sum of your scores of each rounds
-
-// Winner of the tournament : player with Highest score
-
-// Score for a round :
-// shape score + outcome score
-
-// Shape score :
-// 1 : Rock
-// 2 : Paper
-// 3 : Scissors
-
-// Outcome score
-// 0 : lost
-// 3 : draw
-// 6  : won
-
-// Calculate the score you would get if following the strategy guide
-
-
-// What would your total score be
-// if everything goes exactly according to your strategy guide?
-
 class Day02Test : StringSpec() {
 
     init {
