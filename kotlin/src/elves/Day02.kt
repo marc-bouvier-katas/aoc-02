@@ -15,9 +15,12 @@ fun part1(encryptedStrategyGuide: List<String>): Int =
 fun part2(encryptedStrategyGuide: List<String>): Int =
     encryptedStrategyGuide
         .map { it.split(" ") }
-        .map { RoundResult(
-            Move.of(it[0]),
-            Move.of(it[0]).moveToFulfill(Outcome.of(it[1]))) }
+        .map {
+            RoundResult(
+                Move.of(it[0]),
+                Move.of(it[0]).moveToFulfill(Outcome.of(it[1]))
+            )
+        }
         .let { RoundResults(it) }
         .yourTotalScore
 
@@ -40,4 +43,4 @@ fun readInput(name: String): List<String> =
 @Suppress("unused")
 fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray()))
     .toString(16)
-    .padStart(32, '0') 
+    .padStart(32, '0')
