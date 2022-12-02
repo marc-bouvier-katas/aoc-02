@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+    php-7-4:
+        image: "phpstorm/php-cli:7.4-xdebug3.0"
+        working_dir: /work
+        volumes:
+            -   ./:/work
+        command: "php phpunit-9.5.26.phar --do-not-cache-result --verbose ."
+
+    php-8-1:
+        image: "phpstorm/php-cli:8.1-xdebug3.1"
+        working_dir: /work
+        volumes:
+            -   ./:/work
+        command: "php phpunit-9.5.26.phar --do-not-cache-result --verbose ."
