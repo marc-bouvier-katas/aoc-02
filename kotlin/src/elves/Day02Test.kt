@@ -120,25 +120,24 @@ class Day02Test : StringSpec() {
             }
         }
 
-        "Round scores" {
+        "Round possible scores" {
             forAll(
-                row("A", "X", 4, 4),
-                row("A", "Y", 8, 1),
-                row("A", "Z", 3, 7),
-                row("B", "X", 1, 8),
-                row("B", "Y", 5, 5),
-                row("B", "Z", 9, 2),
-                row("C", "X", 7, 3),
-                row("C", "Y", 2, 9),
-                row("C", "Z", 6, 6),
-            ) { opponentsMoveElveEncoded, yourMoveElveEncoded, yourScore, opponentScore ->
+                row("A", "X", 4),
+                row("A", "Y", 8),
+                row("A", "Z", 3),
+                row("B", "X", 1),
+                row("B", "Y", 5),
+                row("B", "Z", 9),
+                row("C", "X", 7),
+                row("C", "Y", 2),
+                row("C", "Z", 6),
+            ) { opponentsMoveElveEncoded, yourMoveElveEncoded, yourScore ->
 
                 val roundResult = RoundResult(
                     Move.of(opponentsMoveElveEncoded),
                     Move.of(yourMoveElveEncoded)
                 )
                 roundResult.yourScore shouldBe yourScore
-                roundResult.opponentScore shouldBe opponentScore
             }
         }
 
