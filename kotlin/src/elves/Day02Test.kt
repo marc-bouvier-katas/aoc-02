@@ -14,12 +14,16 @@ class Day02Test : StringSpec() {
         // Acceptance
 
         "Part 1 sample" {
-            //                  Opponent                   You
-            //               move   outcome score  |     move   outcome score
-            // A Y    ->        1       0       1           2       6       8
-            // B X              2       6       8           1       0       1
-            // C Z              3       3       6           3       3       6
-            // Total                           15                          15
+
+            /*
+                                  Opponent                   You
+                            move   outcome score  |     move   outcome score
+            A Y    ->        1       0       1           2       6       8
+            B X              2       6       8           1       0       1
+            C Z              3       3       6           3       3       6
+            Total                           15                          15
+
+            */
 
             val testInput = readInput("input-sample")
             part1(testInput) shouldBe 15
@@ -150,10 +154,6 @@ class Day02Test : StringSpec() {
             ) { opponentMove, outcome, moveToFullfillOutcome ->
                 opponentMove.moveToFulfill(outcome) shouldBe moveToFullfillOutcome
             }
-
         }
-
     }
-
-
 }
