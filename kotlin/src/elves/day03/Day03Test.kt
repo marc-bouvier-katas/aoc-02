@@ -13,34 +13,51 @@ class Day03Test : StringSpec() {
 
         // Acceptance
 
-        "Part 1 sample" {
+        "!Part 1 sample" {
             val testInput = readInput("input-sample")
-            part1(testInput) shouldBe 41
+            part1(testInput) shouldBe 157
         }
 
 
-        "Part 1 result" {
+        "!Part 1 result" {
             val testInput = readInput("input")
             part1(testInput) shouldBe 42
         }
 
         // Inner TDD loop
 
+        "Priorité pour un type d'objet" {
+            forAll(
+                row("a",1),
+                row("b",2),
+            ){
+                typeObjet,priorite->
+
+                priorityOf(typeObjet) shouldBe priorite
+            }
+
+        }
+
+
+
         // Part 2
         // Acceptance
 
-        "Part 2 sample" {
+        "!Part 2 sample" {
 
             val testInput = readInput("input-sample")
             part2(testInput) shouldBe 42
         }
 
-        "Part 2 result" {
+        "!Part 2 result" {
             val testInput = readInput("input")
             part2(testInput) shouldBe 42
         }
 
         // Inner TDD loop
 
+    }
+    fun priorityOf(typeObjet: String): Int {
+        return 1
     }
 }
