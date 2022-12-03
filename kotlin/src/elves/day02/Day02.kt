@@ -1,4 +1,4 @@
-package elves
+package elves.day02
 
 import java.io.File
 import java.math.BigInteger
@@ -31,10 +31,10 @@ fun part2(encryptedStrategyGuide: List<String>): Int =
 
 fun readInput(name: String): List<String> =
     try {
-        File("src/elves", "$name.txt").readLines()
+        File("src/elves/day02", "$name.txt").readLines()
     } catch (e: java.io.FileNotFoundException) {
         // When run in cyber-dojo.org
-        File("/sandbox/elves", "$name.txt").readLines()
+        File("/sandbox/elves/day02", "$name.txt").readLines()
     }
 
 /**

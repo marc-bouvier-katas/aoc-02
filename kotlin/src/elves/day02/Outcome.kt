@@ -1,4 +1,4 @@
-package elves
+package elves.day02
 
 enum class Outcome(val score: Int, val elveEncoded: String) {
 

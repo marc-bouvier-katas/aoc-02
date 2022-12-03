@@ -1,6 +1,7 @@
-package elves
+package elves.day02
 
-import elves.Outcome.*
+import elves.day02.Outcome.*
+
 
 enum class Move(val score: Int) {
 
@@ -9,6 +10,7 @@ enum class Move(val score: Int) {
     SCISSORS(3);
 
     fun against(opponentsMove: Move): Outcome = when {
+
         this == PAPER -> when (opponentsMove) {
             PAPER -> DRAW
             SCISSORS -> LOSE

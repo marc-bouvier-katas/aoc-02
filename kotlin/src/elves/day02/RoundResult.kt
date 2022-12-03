@@ -1,4 +1,4 @@
-package elves
+package elves.day02
 
 class RoundResult(opponentMove: Move, yourMove: Move) {
 

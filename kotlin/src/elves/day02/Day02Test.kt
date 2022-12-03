@@ -1,7 +1,7 @@
-package elves
+package elves.day02
 
-import elves.Move.*
-import elves.Outcome.*
+import elves.day02.Move.*
+import elves.day02.Outcome.*
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.data.blocking.forAll
 import io.kotest.data.row
@@ -67,18 +67,18 @@ class Day02Test : StringSpec() {
         }
 
 
-        "Elve coded move decoded" {
-            forAll(
-                row("A", ROCK),
-                row("X", ROCK),
-                row("B", PAPER),
-                row("Y", PAPER),
-                row("C", SCISSORS),
-                row("Z", SCISSORS),
-            ) { elveCode, move ->
-                Move.of(elveCode) shouldBe move
-            }
-        }
+"Elve coded move decoded" {
+    forAll(
+        row("A", ROCK),
+        row("X", ROCK),
+        row("B", PAPER),
+        row("Y", PAPER),
+        row("C", SCISSORS),
+        row("Z", SCISSORS),
+    ) { elveCode, move ->
+        Move.of(elveCode) shouldBe move
+    }
+}
 
         "Outcome score" {
             forAll(
