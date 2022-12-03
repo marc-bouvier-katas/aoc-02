@@ -49,7 +49,7 @@ class Day02Test : StringSpec() {
                 row(PAPER, ROCK, WIN),
                 row(PAPER, PAPER, DRAW),
             ) { yourMove, opponentsMove, outcome ->
-                yourMove.against(opponentsMove) shouldBe outcome
+                yourMove against opponentsMove shouldBe outcome
             }
         }
 
@@ -75,8 +75,8 @@ class Day02Test : StringSpec() {
         row("Y", PAPER),
         row("C", SCISSORS),
         row("Z", SCISSORS),
-    ) { elveCode, move ->
-        Move.of(elveCode) shouldBe move
+    ) { elveEncoded, move ->
+        Move of elveEncoded shouldBe move
     }
 }
 
@@ -101,11 +101,11 @@ class Day02Test : StringSpec() {
                 row("C", "X", 7),
                 row("C", "Y", 2),
                 row("C", "Z", 6),
-            ) { opponentsMoveElveEncoded, yourMoveElveEncoded, yourScore ->
+            ) { elveEncodedOpponentMove, elveEncodedYourMove, yourScore ->
 
                 val roundResult = RoundResult(
-                    Move.of(opponentsMoveElveEncoded),
-                    Move.of(yourMoveElveEncoded)
+                    Move.of(elveEncodedOpponentMove),
+                    Move.of(elveEncodedYourMove)
                 )
                 roundResult.yourScore shouldBe yourScore
             }
@@ -134,8 +134,8 @@ class Day02Test : StringSpec() {
                 row("X", LOSE),
                 row("Y", DRAW),
                 row("Z", WIN),
-            ) { outcomeHintElveEncoded, outcome ->
-                Outcome.of(outcomeHintElveEncoded) shouldBe outcome
+            ) { elveEncoded, outcome ->
+                Outcome of elveEncoded shouldBe outcome
             }
 
         }
@@ -151,8 +151,8 @@ class Day02Test : StringSpec() {
                 row(SCISSORS, WIN, ROCK),
                 row(SCISSORS, DRAW, SCISSORS),
                 row(SCISSORS, LOSE, PAPER),
-            ) { opponentMove, outcome, moveToFullfillOutcome ->
-                opponentMove.moveToFulfill(outcome) shouldBe moveToFullfillOutcome
+            ) { opponentMove, outcome, yourMove ->
+                opponentMove toFulfill outcome shouldBe yourMove
             }
         }
     }

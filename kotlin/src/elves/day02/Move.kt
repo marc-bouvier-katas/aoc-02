@@ -9,7 +9,7 @@ enum class Move(val score: Int) {
     PAPER(2),
     SCISSORS(3);
 
-    fun against(opponentsMove: Move): Outcome = when {
+    infix fun against(opponentsMove: Move): Outcome = when {
 
         this == PAPER -> when (opponentsMove) {
             PAPER -> DRAW
@@ -33,7 +33,7 @@ enum class Move(val score: Int) {
     }
 
 
-    fun moveToFulfill(outcome: Outcome): Move = when (outcome) {
+   infix fun toFulfill(outcome: Outcome): Move = when (outcome) {
         DRAW -> when (this) {
             ROCK -> ROCK
             PAPER -> PAPER
@@ -55,7 +55,7 @@ enum class Move(val score: Int) {
     }
 
     companion object {
-        fun of(elveMoveCode: String): Move {
+        infix fun of(elveMoveCode: String): Move {
             return when (elveMoveCode) {
                 "A" -> ROCK
                 "X" -> ROCK

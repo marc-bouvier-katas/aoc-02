@@ -18,7 +18,7 @@ fun part2(encryptedStrategyGuide: List<String>): Int =
         .map {
             RoundResult(
                 Move.of(it[0]),
-                Move.of(it[0]).moveToFulfill(Outcome.of(it[1]))
+                Move.of(it[0]).toFulfill(Outcome.of(it[1]))
             )
         }
         .let { RoundResults(it) }

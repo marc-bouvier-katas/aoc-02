@@ -7,7 +7,7 @@ enum class Outcome(val score: Int, val elveEncoded: String) {
     LOSE(0, "X");
 
     companion object {
-        fun of(elveEncoded: String): Outcome {
+       infix  fun of(elveEncoded: String): Outcome {
             return values().find { it.elveEncoded == elveEncoded }
                 ?: throw IllegalArgumentException("Unexpected elve encoded outcome $elveEncoded")
 
