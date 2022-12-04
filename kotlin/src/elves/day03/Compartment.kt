@@ -1,10 +1,15 @@
 package elves.day03
 
 class Compartment(s: String) {
+    fun intersectionWith(secondCompartment: Compartment): PackingReport {
+        val other: CharArray = secondCompartment.content.toCharArray()
+        val intersect: Set<Char> = content.toCharArray().intersect(other.asIterable().toSet())
+        return PackingReport(intersect.firstOrNull())
+    }
 
-    val size: Int
+    private var content: String
 
     init {
-        size = s.length
+        content = s
     }
 }

@@ -14,15 +14,15 @@ class Day03Test : StringSpec() {
 
         // Acceptance
 
-        "!Part 1 sample" {
+        "Part 1 sample" {
             val testInput = readInput("input-sample")
             part1(testInput) shouldBe 157
         }
 
 
-        "!Part 1 result" {
+        "Part 1 result" {
             val testInput = readInput("input")
-            part1(testInput) shouldBe 42
+            part1(testInput) shouldBe 7742
         }
 
         // Inner TDD loop
@@ -33,31 +33,28 @@ class Day03Test : StringSpec() {
 
         "Priorité pour un type d'objet" {
             forAll(
-                row("a", 1),
-                row("b", 2),
-                row("j", 10),
-                row("z", 26),
-                row("A", 27),
-                row("B", 28),
-                row("C", 29),
-                row("Z", 52),
-            ) { typeObjet, priorite ->
+                row('a', 1),
+                row('b', 2),
+                row('j', 10),
+                row('z', 26),
+                row('A', 27),
+                row('B', 28),
+                row('C', 29),
+                row('Z', 52),
+            ) { typeObjet, priority ->
 
-                priorityOf(typeObjet) shouldBe priorite
+                ItemCategory(typeObjet).priority shouldBe priority
             }
 
         }
 
-        "Size of compartments from rucksack" {
+        "Packing error : same category in both compartments" {
             forAll(
-                row("ab", 1),
-                row("aAbB", 2),
-                row("vJrwpWtwJgWrhcsFMMfFFhFp", 12),
-            ) { ruckSackContent, compartmentsSize ->
+                row("aa", 'a'),
+                row("aBcDeafGhI", 'a'),
+            ) { ruckSackContent, categoryInBothCompartments ->
 
-                val ruckSack = RuckSack((ruckSackContent))
-                ruckSack.firstCompartment.size shouldBe compartmentsSize
-                ruckSack.secondCompartment.size shouldBe compartmentsSize
+                RuckSack(ruckSackContent).packingReport shouldBe PackingReport(categoryInBothCompartments)
             }
         }
 
@@ -76,26 +73,6 @@ class Day03Test : StringSpec() {
         }
 
         // Inner TDD loop
-
-    }
-
-    // ca va être un peu long à écrire mais
-    // c'est une solution posible, car on sait que on aura que a-z et A-Z
-    // on peut soit l'écrire à la main, soit générer cette table d correspondance avec du code
-    // si on décide de choisir cette approche
-
-    fun priorityOf(typeObjet: String): Int {
-
-
-        val asciiCode = typeObjet.chars().findFirst().asInt
-
-        return if (asciiCode in (97..122))
-            asciiCode - ASCIICODE_FOR_A_LOWERCASE + 1 // ici le 1 c'est la priorité de départ depuis "a"
-        else {
-            asciiCode - ASCIICODE_FOR_A_UPPERCASE + 27 // 27 c'est la priorité de départ depuis "A"
-        }
-// c'est bien ici, on peut s'errêter là.
-
 
     }
 }

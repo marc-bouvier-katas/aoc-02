@@ -2,12 +2,11 @@ package elves.day03
 
 class RuckSack(s: String) {
 
-
-    val secondCompartment: Compartment
-    val firstCompartment: Compartment
+    val packingReport: PackingReport
 
     init {
-        firstCompartment = Compartment(s.take(s.length/2))
-        secondCompartment = Compartment(s.takeLast(s.length/2))
+        val firstCompartment = Compartment(s.take(s.length / 2))
+        val secondCompartment = Compartment(s.takeLast(s.length / 2))
+        packingReport = firstCompartment.intersectionWith(secondCompartment)
     }
 }

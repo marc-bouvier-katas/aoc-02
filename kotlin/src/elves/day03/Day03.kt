@@ -5,7 +5,11 @@ import java.math.BigInteger
 import java.security.MessageDigest
 
 
-fun part1(input: List<String>): Int = -1
+fun part1(input: List<String>): Int =
+    input.map { RuckSack(it) }
+        .map { it.packingReport }
+        .mapNotNull { it.categoryInBothCompartments }
+        .sumOf { it.priority }
 
 
 fun part2(input: List<String>): Int = -1
