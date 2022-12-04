@@ -57,8 +57,6 @@ class ItemCategory(categoryCode: Char) {
     }
 }
 
-
-
 private class PackingReport(s: Char?) {
     val categoryInBothCompartments: ItemCategory?
 
