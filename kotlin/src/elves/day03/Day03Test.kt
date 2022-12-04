@@ -5,8 +5,6 @@ import io.kotest.data.blocking.forAll
 import io.kotest.data.row
 import io.kotest.matchers.shouldBe
 
-const val ASCIICODE_FOR_A_LOWERCASE = 97
-const val ASCIICODE_FOR_A_UPPERCASE = 65
 
 class Day03Test : StringSpec() {
 
@@ -50,11 +48,11 @@ class Day03Test : StringSpec() {
 
         "Packing error : same category in both compartments" {
             forAll(
-                row("aa", 'a'),
-                row("aBcDeafGhI", 'a'),
-            ) { ruckSackContent, categoryInBothCompartments ->
+                row("aa", 1),
+                row("aBcDeafGhI", 1),
+            ) { ruckSackContent, priorityOfSharedCategory ->
 
-                RuckSack(ruckSackContent).packingReport shouldBe PackingReport(categoryInBothCompartments)
+                RuckSack(ruckSackContent).priorityOfSharedCategory shouldBe priorityOfSharedCategory
             }
         }
 

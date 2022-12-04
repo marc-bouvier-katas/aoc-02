@@ -7,9 +7,8 @@ import java.security.MessageDigest
 
 fun part1(input: List<String>): Int =
     input.map { RuckSack(it) }
-        .map { it.packingReport }
-        .mapNotNull { it.categoryInBothCompartments }
-        .sumOf { it.priority }
+        .mapNotNull { it.priorityOfSharedCategory }
+        .sum()
 
 
 fun part2(input: List<String>): Int = -1
