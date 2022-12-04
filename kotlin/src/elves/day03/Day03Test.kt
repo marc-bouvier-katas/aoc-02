@@ -60,14 +60,24 @@ class Day03Test : StringSpec() {
         // Part 2
         // Acceptance
 
-        "!Part 2 sample" {
+        "Part 2 sample" {
             val testInput = readInput("input-sample")
-            part2(testInput) shouldBe 42
+            part2(testInput) shouldBe 70
         }
 
-        "!Part 2 result" {
+        "Part 2 result" {
             val testInput = readInput("input")
-            part2(testInput) shouldBe 42
+            part2(testInput) shouldBe 2276
+        }
+
+        // Group of 3 rucksacks
+
+
+        // Badge category is the one common to the 3 groups
+
+        "Badge"{
+            RuckSack("abcd").badge(RuckSack("aefg"),
+            RuckSack("ahij")) shouldBe ItemCategory('a')
         }
 
         // Inner TDD loop

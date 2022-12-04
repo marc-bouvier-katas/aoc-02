@@ -11,7 +11,15 @@ fun part1(input: List<String>): Int =
         .sum()
 
 
-fun part2(input: List<String>): Int = -1
+fun part2(input: List<String>): Int {
+
+    return input.asSequence().chunked(3)
+        .map { elveGroup -> elveGroup.map { RuckSack(it) } }
+        .map { it[0].badge(rucksacksOfTheSameGroup = it.toTypedArray()) }
+        .mapNotNull { it?.priority }
+        .sum()
+
+}
 
 
 /**

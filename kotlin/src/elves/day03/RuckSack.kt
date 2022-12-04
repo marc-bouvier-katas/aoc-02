@@ -1,6 +1,6 @@
 package elves.day03
 
-class RuckSack(elveEncodedContent: String) {
+class RuckSack(private val elveEncodedContent: String) {
 
     val priorityOfSharedCategory: Int?
 
@@ -10,6 +10,15 @@ class RuckSack(elveEncodedContent: String) {
 
         priorityOfSharedCategory =
             firstCompartment.intersectionWith(secondCompartment).categoryInBothCompartments?.priority
+    }
+
+    fun badge(vararg rucksacksOfTheSameGroup: RuckSack): ItemCategory? {
+        return rucksacksOfTheSameGroup
+            .map { it.elveEncodedContent }
+            .map { it.asIterable() }
+            .fold(elveEncodedContent.asIterable()) { acc, cur -> acc.intersect(cur) }
+            .map { ItemCategory(it) }
+            .firstOrNull()
     }
 
 
@@ -55,6 +64,27 @@ class ItemCategory(categoryCode: Char) {
 
 
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as ItemCategory
+
+        if (priority != other.priority) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return priority
+    }
+
+    override fun toString(): String {
+        return "ItemCategory(priority=$priority)"
+    }
+
+
 }
 
 private class PackingReport(s: Char?) {
